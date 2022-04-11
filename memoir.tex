@@ -662,13 +662,29 @@ m\\m-n
 \end{pmatrix}$. Si m<n alors, il n'existe aucune redondance.
 \section{Face lattice}
 \begin{petit_nom2}
-Soit G un Graphe. Un \textit{tube} est ensemble non vide de sommet de G. (tsy ampy)\\
+Soit G un Graphe. Un \textit{tube} est un ensemble non vide de sommet de G dont le graphe induit est un sous-graphe connexe propre de G. (tsy ampy)\\
 Il y a trois façons pour que deux tubes $t_1$ et $t_2$ interagissent dans un graphe:
 \begin{enumerate}
 \item $t_1 \subset t_2$
-\item les 2 tubes s'intersectent c'est-à-dire $t_1 \cap t_2 \neq 0$ avec $ t_1 \nsubseteq t_2$ et $t_2 \nsubseteq t_1 $
+\item les 2 tubes se coupent c'est-à-dire $t_1 \cap t_2 \neq 0$ avec $ t_1 \nsubseteq t_2$ et $t_2 \nsubseteq t_1 $
 \item les 2 tubes sont adjacents c'est-à-dire $t_1 \cap t_2 = 0$ et $t_1 \cup t_2$ est un tube dans G. ahahaha
 \end{enumerate}
+Les tubes sont dits compatibles si ni ils se coupent, ni ils ne sont adjacents. Un Tubing T de G est un ensemble 
+de tubes de G tel que chaques pairs de tubes sont compatibles  l'un avec l'autre.\\
+Notons $k-Tubing$ un Tubing ayant k tubes.\\
 \end{petit_nom2}
+
+\begin{petit_nom2}
+  Pour un graphe G, le graphe associahedron noté \textit{Assoc(G)} est un polytope convexe dont la face poset est isomorphe à l'ensemble des Tubing de G, ordonné tel que T < T'
+  si T obtenu à partir de T' en ajoutant des tubes.\\
+  Le graphe associé du graphe en étoile, Assoc(K1,m), aussi appelé le \textit{stellohedron}.\\
+\end{petit_nom2}
+
+\begin{petit_nom2}
+  Le graphe étoilé (à m + 1 sommets) est le graphe biparti complet $K_{1,m}$. Nous
+étiquetez le sommet isolé * et appelez-le le sommet intérieur. Nous étiquetons les m autres sommets $x_1, x_2, . . . , x_m$,
+et appelez-les sommets extérieurs
+\end{petit_nom2}
+
 
 \end{document}
