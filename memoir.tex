@@ -1,5 +1,5 @@
 \documentclass{book}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}   
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{amsthm}
@@ -13,6 +13,7 @@
 \title{fenoina zao}
 \author{Zo Haingo Iarivony \bsc{Rakotoarisoa}}
 \date{3 mai 2021}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{petit_nom1}{Proposition}
 \newtheorem{petit_nom2}{Définition}[chapter] 
 \newcommand{\sof}{\shorthandoff{:}}
@@ -21,21 +22,21 @@
 \chapter{les matrices étudiées}
 \section{Les matrices de permutation}
 \begin{petit_nom2}
-La matrice d'une permutation de taille n est une matrice de dimension $n * n$ à valeur dans $\{0,1\}$ dont la total des lignes et des colonnes vaut 1.\\
+La matrice d'une permutation de taille n est une matrice de dimension $n * n$ à valeur dans $\{0,1\}$ dont la total des lignes et des colonnes vaut 1.
 \end{petit_nom2} 
 
-Exemple: \\
+Exemple: 
 \begin{equation}
 \begin{pmatrix}
  0&1&0\\1&0&0\\0&0&1
  \end{pmatrix}
 \end{equation}
-\\
- pour $\sigma=213$ \\
+
+ pour $\sigma=213$ 
 \begin{theorem}
 Le nombre de matrice de permutation d'ordre n est n!
-\end{theorem} \\\\
-\textbf{Preuve : }\\\\
+\end{theorem} 
+\textbf{Preuve : }\\
 Notons $r_1, r_2, ..., r_n$ les 1 existants dans une matrice de permutation d'ordre n,\\\\ Plaçons les 1 suivants les colonnes. \\\\
 $r_1$ a n places disponibles sur la première colonne,\\ $r_2$ a n-1 places disponibles après avoir enlevé la ligne de $r_1$\\
 $r_3$ a n-2 places disponible et ainsi de suite jusqu'à $r_n$. 
@@ -44,13 +45,13 @@ $r_3$ a n-2 places disponible et ainsi de suite jusqu'à $r_n$.
  \begin{petit_nom2}
  Une matrice de permutation partielle est une matrice de taille $m*n$ à valeur dans $\{0,1\}$ dont la somme des lignes et des colonnes vaut 1 ou 0.
  \end{petit_nom2}
-  Exemple: \\
+  Exemple: 
  \begin{equation}
- \(\begin{pmatrix}
+ \begin{pmatrix}
  0&1&0\\1&0&0\\0&0&0
- \end{pmatrix}\)
+ \end{pmatrix}
  \end{equation}
- \\\\
+ 
 Le nombre de matrice de permutation partielle de taille $m*n$ est : \\
 \begin{equation}
 \sum_{k=0}^{m}\begin{pmatrix}
@@ -63,7 +64,7 @@ Avec $(n)_0=1$ \\\\
 \textbf{Preuve :}\\
 Dans une matrice de permutation partielle, le nombre maximal de 1 dans une ligne et une colonne vaut 1. Supposons qu'il y a k lignes dont la somme vaut 1 et les (m-k) lignes restants vaut 0, Il ne reste donc plus qu'à choisir les k lignes à vecteurs unités. Il est évident qu'il existe $\begin{pmatrix}
  m\\k
- \end{pmatrix}$ façons de faire cela. Maintenant, après avoir choisit les lignes où placées les entrées positives, il reste à les posées. \\ Remarquons qu'il y a n possibilité de placer le premier 1 puisqu'il existe n colonnes. Après l'avoir placé, il y a (n-1) possibilité pour le deuxième 1 et ainsi de suite jusqu'au placement des k entrées positives. On a ainsi la factorielle tombante. Tant que m<n, on peut choisir k 1 entre 0 et m. Sinon, il y a une transposition de la place de m et n dans la formule. \\\\
+ \end{pmatrix}$ façons de faire cela. Maintenant, après avoir choisit les lignes $où$ placées les entrées positives, il reste à les posées. \\ Remarquons qu'il y a n possibilité de placer le premier 1 puisqu'il existe n colonnes. Après l'avoir placé, il y a (n-1) possibilité pour le deuxième 1 et ainsi de suite jusqu'au placement des k entrées positives. On a ainsi la factorielle tombante. Tant que m<n, on peut choisir k 1 entre 0 et m. Sinon, il y a une transposition de la place de m et n dans la formule. \\\\
  \textbf{Exemple :}\\
  -Les 13 matrices de permutations partielles à 2 lignes et 3 colonnes sont : \\\\
  \includegraphics[scale=0.7]{Capture2.PNG}
@@ -72,17 +73,17 @@ Dans une matrice de permutation partielle, le nombre maximal de 1 dans une ligne
  Une matrices à signe alternant de taille n est une matrice carré $n*n$ à valeur dans $\{-1,0,1\}$ vérifiant:\\
  \begin{enumerate}
  \item Les sommes des valeurs composant une ligne ou une colonne vaut 1
- \item  1 et -1 sont en alternance, c'est-à-dire que s'il y a un 1 dans une ligne ou une colonne alors il n'y aura de 1 qu'après un -1 dans cette même ligne ou colonne.\n
- \end{enumerate}\\
+ \item  1 et -1 sont en alternance, c'est-à-dire que s'il y a un 1 dans une ligne ou une colonne alors il n'y aura de 1 qu'après un -1 dans cette même ligne ou colonne.
+ \end{enumerate}
  \end{petit_nom2}
   Exemple:\\\\
- \begin{pmatrix}
+$ \begin{pmatrix}
  0&1&0&1&1\\1&0&0&0&-1\\0&0&1&-1&1\\0&0&0&1&0
- \end{pmatrix} \\
+ \end{pmatrix} $
  \begin{t}
  Le nombre de MSA de taille n est :\\
  \begin{equation}
- #A_n=\prod_{0\leqslant i<n}\frac{(3i+1)!}{(n+i)!}
+\#A_n=\prod_{0\leqslant i<n}\frac{(3i+1)!}{(n+i)!}
  \end{equation}
  \end{t}\\
  Cette formule était une conjecture proposée par Mills, Robbins et Rumsey. Elle a attiré l'attention de plusieurs mathématicien. Finalement prouvé par Zeilberger. Après, Kuperberg a donné une démonstration pratique et surtout avec une démarche utile dans d'autres conjectures.\\
@@ -94,7 +95,7 @@ Dans une matrice de permutation partielle, le nombre maximal de 1 dans une ligne
   \begin{petit_nom2}
   Une entrée positif 1 d'un MSA est appelée isolée si sa ligne et sa colonne ne contiennent à la fois que des 0.
   \end{petit_nom2}
-  \\ Exemple : \\\\
+   Exemple : \\\\
   $\begin{pmatrix}
  0&1&0&1\\1&0&0&0\\0&-1&1&-1\\0&1&0&1
  \end{pmatrix} $ \\\\ Le 1 sur le 2ème ligne et 1er colonne est isolé. \\\\
@@ -109,27 +110,27 @@ Dans une matrice de permutation partielle, le nombre maximal de 1 dans une ligne
   \textbf{Mélange de MSA}
   \end{large}   \\
    Nous allons mélanger plusieurs MSA pour obtenir un. Pour ce faire, il suffit juste de placer une ligne d'un des MSA à mélanger et lui seul sur une ligne de la MSA formée finale. Aucune ligne de tous les MSA à combiner ne doivent se superposé, ainsi les conditions pour que la Matrice obtenue soit un MSA ont été remplies. \\
-   Il ne reste donc plus que de construire une méthode pour trouver où placer les lignes et les colonnes des matrices à mélanger. \\
+   Il ne reste donc plus que de construire une méthode pour trouver $où$ placer les lignes et les colonnes des matrices à mélanger. \\
    Soit $E={M_1^{n_1}, M_2^{n_2}, ... , M_n^{n_n}}$ les matrices à mélangées. les $n_i$ sont les nombres de multiplicités des matrices à mélanger. C'est-à-dire que dans le mélange il y a $n_i$ matrice $M_i$ qui se ressemble. On obtiendra ensuite un MSA mélangée de taille T qui vaut naturellement $T=\sum_{i=1}^{n} n_i \|M_i\|$. \\ 
    Pour la construction d'un MSA,Il suffit juste de prendre deux multi-ensembles nommés C et L pour ligne et colonne. C est un ensemble de $n=\sum_{i=1}^{n} n_i$ ensembles de taille $|M_1|$ pour les $n_1$ premiers ensembles, $|M_2|$ pour les $n_2$ suivants et ainsi de suite, de même que L. on obtient ainsi une partition de T dans C et dans L. \\
    Pour construire la matrice mélangée. Il faut juste mettre les éléments de la matrice $M_1$ au premier élément de L et de C. 
    \\ Dans ce cas, la réduction de la matrice mélangée M à $C_i$ (la i-ème élément de C) et $L_i$(la i-ème élément de L) est bien sur $M_i$(en comptant la répétition)\\
    \textbf{Exemple: } 
    Nous allons mélangé 3 matrices :\\ 
-    \begin{pmatrix}
+   $ \begin{pmatrix}
  0&1&0\\1&-1&1\\0&1&0
- \end{pmatrix} \\\\
- \begin{pmatrix}
+ \end{pmatrix}$ \\\\
+$ \begin{pmatrix}
   0&1&0\\1&-1&1\\0&1&0
- \end{pmatrix} \\\\
- \begin{pmatrix}
+ \end{pmatrix}$ \\\\
+$ \begin{pmatrix}
  0&1&0&0\\1&-1&1&0\\0&1&-1&1\\0&0&1&0
- \end{pmatrix}\\\\
+ \end{pmatrix}$\\\\
  On utilise $C=\{ (1,3,7), (2,5,6), (4,8,9,10) \}$ et $L=\{ (1,2,3), (7,8,9), (4,5,6,10) \}$ . \\\\
  Au final, la matrice mélangée est : \\
- \begin{pmatrix}
+ $\begin{pmatrix}
  0&0&1&0&0&0&0&0&0&0\\1&0&-1&0&0&0&1&0&0&0\\0&0&1&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&1&0&0\\0&0&0&1&0&0&0&-1&1&0\\0&0&0&0&0&0&0&1&-1&1\\0&0&0&0&1&0&0&0&0&0\\0&1&0&0&-1&1&0&0&0&0\\0&0&0&0&1&0&0&0&0&0\\0&0&0&0&0&0&0&0&1&0
- \end{pmatrix}\\\\
+ \end{pmatrix}$\\\\
  \textbf{Remarque : } \\\\
  Pour les mêmes matrices à mélanger. En prenant $L'=\{ (2,5,6), (1,3,7), (4,8,9,10) \}$ et $C'=\{ (7,8,9), (1,2,3), (4,5,6,10) \}$ Nous aurons la même matrice mélangée finale. \\ \\
  On obtiendra le même résultat si les éléments de C' n'est rien d'autre que les éléments de C à permutation près.  \\ \\
@@ -167,10 +168,10 @@ Dans une matrice de permutation partielle, le nombre maximal de 1 dans une ligne
   Prouvons d'abord la borne supérieur et inférieur de la somme. \\
    Comme la matrice est toujours carrée, la taille du matrice est égale à la taille de son vecteur ligne qui est aussi égale à la taille de son vecteur colonne. \\
    Une entrée négative est encerclé par 4 entrées positives pour l'obtention d'une somme égale à 1. \\ 
-   \begin{pmatrix}
+   $\begin{pmatrix}
    0&1&0\\1&-1&1\\0&1&0
-   \end{pmatrix}\\
-   Une matrice contractée $C_k$ (ayant k entrées négatives) possède donc au plus 4k entrées positives. Donc la taille maximal de $C_k$ est $4k-k=3k$.\\ Cette taille maximale est atteinte en reproduisant k fois le matrice ci-dessus de façon où aucun des éléments de ces k reproductions ne s 'interceptent. \\
+   \end{pmatrix}$\\
+   Une matrice contractée $C_k$ (ayant k entrées négatives) possède donc au plus 4k entrées positives. Donc la taille maximal de $C_k$ est $4k-k=3k$.\\ Cette taille maximale est atteinte en reproduisant k fois le matrice ci-dessus de façon $où$ aucun des éléments de ces k reproductions ne s 'interceptent. \\
    Démontrons maintenant la taille minimale de $C_k$.\\
    Soit A une matrice minimale de taille n pouvant contenir k entrées négatives. Si A peut encore se contracté alors A n'est pas le minimal, donc A est déjà une matrice contracté.\\
    D'un autre côté, l'alternance des signes sur les lignes et les colonnes impliques que la i-ème ligne de A peut contenir au plus min(i-1,n-i) entrée négative.\\
@@ -296,20 +297,20 @@ Le mot d'un tableau est la lecture des entrées du tableau colonne par colonne. 
 1&2&4\cr
 \end{Young}$ \\
 
-\begin{petit_nom_2}
+\begin{petit_nom2}
 Une \textbf{matrice à signe} est une matrice $M = (M_{i,j})$ telle que : \\
 \begin{itemize}
 \item $ \forall i, j, M_{i,j} \in \{-1,0,1\}$;
 \item $\forall i, j \sum_{r=1}^i M_{r,j} \in \{0,1\}$;
 \item $ \forall i, j, \sum_{s=1}^j M_{i,s} \geq 0 $
-\end{itemize}\\
-\end{petit_nom_2}
+\end{itemize}
+\end{petit_nom2}
 Il existe une bijection entre tableau de Young et matrice de signe. Il suffit juste de traduire matricielement l'apparition et la disparition des entrées dans les Colonnes du tableau de Young. \\
 Considérons ainsi la fonction suivante : \\
 
 $
 M(T)_{ij} = \left\{
-    \begin{array}{ll}
+    \begin{array}{clclc}
         1 & \mbox{si } j \in C_{l-i+1} & \mbox{et } j \notin  C_{l-i+2} \\
         -1 & \mbox{si } j \notin C_{l-i+1} & \mbox{et } j \in  C_{l-i+2} \\
         0 & \mbox{sinon }
@@ -325,7 +326,7 @@ Ainsi, pour définir un clé à toutes les matrices à signes, nous allons mettr
 
 Un -1 dans une matrice à signe est dit \textit{éliminable} s'il n'y a pas de -1 dans sa ligne au dessus de lui ni à sa droite. \\ 
 C'est à dire, un -1 en position (a,b) est éliminable si: \\
-$\forall i \lt a, \forall j, M_{i,j} \ne -1, & \mbox{ et } \forall j \ge b, M_{a,j} \ne -1$
+$\forall i < a, \forall j, M_{i,j} \ne -1,  \mbox{ et } \forall j \ge b, M_{a,j} \ne -1$
 
 Pour un tel -1, \textit{ses voisins} sont les entrées $M_{i,j}$ égales à 1 telles que : \\
 $i  \leq a, j \leq b \mbox{ et } \forall k, i\leq l \leq a, \forall l, j \leq l \leq b, M_{k,l} \ne 1$\\
@@ -368,7 +369,7 @@ $ U =
 2&2&5&5\cr
 1&1&2&2&5\cr
 \end{Young}  
-  $\\
+$\\
 \subsection{Clé d'une MSA}
 Le triangle Gog, ou triangle monotone associé à une matrice à signe alternant coincide avec la clé du MSA. Cette clé est obtenu comme procédé dans les matrices à signes après élimination des -1 éliminable du matrice à signe alternant.c \\ \\
 \textbf{Exemple :}\\
@@ -407,7 +408,7 @@ Le nombre de matrice à signe alternant à 1 entrée négative ($pour n \geq 3$)
 \begin{equation}
 A_n^{(1)}=\frac{(n!)^2}{(3!)^2(n-3)!}
 \end{equation}
-\end{petit_nom1}\\
+\end{petit_nom1}
 
 \textbf{Preuve :}
 Notons que s'il n'y a qu'un seul -1 à l'interieur d'un MSA. alors cette -1 aura un 1 dans sa volonne au dessus et un autre au dessous, de même un 1 dans son ligne à gauche et un autre à droite. c'est à dire : \\
@@ -419,7 +420,7 @@ L'élimination du -1 donne ainsi :\\\\$\begin{matrix}
 1&&0&&\\&&\vdots&&\\0&\cdots&0&\cdots&1\\&&\vdots&&\\&&1&&
 \end{matrix} 
 $\\\\
-Donc le matrice de permutation obtenue après, contient l'image 132 en d'autre terme si $\sigma$ est la permutation associé à cette matrice alors il existe un certains (i,j,k) tel que $i<j<k & \mbox{ et } \sigma(i)<\sigma(k)<\sigma(j)$, le nombre de MSA ayant une seule entrée -1 est donc le nombre de permutation ayant l'image 132.
+Donc le matrice de permutation obtenue après, contient l'image 132 en d'autre terme si $\sigma$ est la permutation associé à cette matrice alors il existe un certains (i,j,k) tel que $i<j<k \mbox{ et } \sigma(i)<\sigma(k)<\sigma(j)$, le nombre de MSA ayant une seule entrée -1 est donc le nombre de permutation ayant l'image 132.
 
 Le choix du triplet $(i,j,k), 1 \leq i < j < k \leq n$ donne $\begin{pmatrix}
 n\\3
@@ -433,7 +434,7 @@ n\\3
 \begin{petit_nom2} 
   Le polytope des permutations partielles (n,m) est l'enveloppe convexe de tous les matrices de permutation partielle de taille $n*m$ 
  \end{petit_nom2}
- \\\\
+
  
  
   \begin{petit_nom1} 
@@ -443,13 +444,13 @@ n\\3
  \end{pmatrix}
  (n)_k
 }$ sommets.\\
-  \end{petit_nom1} \\\\\\
+  \end{petit_nom1} 
 \textbf{Preuve :}\\
 Puisqu'aucune matrice de permutation partielle n'est la combinaison convexe des autres. Alors il est facile de voir que les points extrêmes du polytopes sont les matrices $P_{mn}$.\\
 
  \begin{theorem}
- PPerm(m,n) comprend tout les matrices $(X_{ij})_{\substack {0\leqslant i \leqslant m\\0 \leqslant j \leqslant n}}$ à valeur dans $\R$ vérifiant: \\
- \begin{numerate}
+ PPerm(m,n) comprend tout les matrices $(X_{ij})_{\substack {0\leqslant i \leqslant m\\0 \leqslant j \leqslant n}}$ à valeur dans $R$ vérifiant: \\
+ \begin{enumerate}
  \item \begin{equation}
  X_{ij}   \geq   0  \text{ Pour tout } 0\leqslant i \leqslant m \text{ et } 0 \leqslant j \leqslant n
  \end{equation}
@@ -459,15 +460,15 @@ Puisqu'aucune matrice de permutation partielle n'est la combinaison convexe des 
  \item \begin{equation}
  \sum_{i'=1}^{n} X_{i'j} \leqslant 1   \text{ Pour tout } 0\leqslant j \leqslant n
  \end{equation}
- \end{numerate} 
- \end{theorem} \\\\
+ \end{enumerate} 
+ \end{theorem} 
  \textbf{Remarque : \\\\}
 \\
 \begin{itemize}
 \item Le dimension d'un (m,n) polytopes des permutations partielles ou PPerm(m,n) de degré n est mn. \\\\\\
 \end{itemize}
 \textbf{Preuve :} \\\\
-Notons $E^{ij}$ la matrice d'ordre $m*n$ ayant 1 sur la i-ème ligne et j-ème colonne et 0 partout a part ce 1. Il est évident que  $E^{11}, E^{12}, E^{21}, ..., E^{mn} ou (E^{ij})_{\substack {0\leqslant i \lqslant m\\0 \leqslant j \leqslant n}} $ engendre tous les éléments composant le polytope $P_{mn}$. \\\\ 
+Notons $E^{ij}$ la matrice d'ordre $m*n$ ayant 1 sur la i-ème ligne et j-ème colonne et 0 partout a part ce 1. Il est évident que  $E^{11}, E^{12}, E^{21}, ..., E^{mn} ou (E^{ij})_{\substack {0\leqslant i \leqslant m\\0 \leqslant j \leqslant n}} $ engendre tous les éléments composant le polytope $P_{mn}$. \\\\ 
  \\\\
  A partir de ce théorème, nous pouvons aisément calculer le nombre de facettes.\\\\
  \textbf{Exemple :} \\\\
@@ -499,7 +500,7 @@ Notons $E^{ij}$ la matrice d'ordre $m*n$ ayant 1 sur la i-ème ligne et j-ème c
  \item la condition (2.3) donne n inégalités.
  \end{itemize}
  Comme les trois inégalités sont linéairement indépendantes, alors PPerm(m,n) contient mn+m+n facettes. 
- \end{petit_nom1} \\\\
+ \end{petit_nom1} 
  \textbf{Conjecture : }\\\\
  Le volume normalisé de PPerm (n,2) (et PPerm(2,n)) est $\begin{pmatrix}
  2n\\n
@@ -512,7 +513,7 @@ Notons $E^{ij}$ la matrice d'ordre $m*n$ ayant 1 sur la i-ème ligne et j-ème c
 Notons PPMSA(m,n) le polytope engendré par les matrices à signe alternant partielle de taille $m*n$ \\\\
 \begin{petit_nom2}
 PPMSA(m,n) est définie comme étant l'enveloppe convexe des matrices à signe alternant partielles. \\\\
-\end{petit_nom2} \\
+\end{petit_nom2} 
 \textbf{Remarque :}\\\\
 Les matrices de permutations partielles étant des cas particuliers des matrices à signe alternant partielles, Un PPMSA(m,n)contient ainsi tout les PPerm(m,n) sa dimension est donc supérieur à mn et inférieur à mn, il est par conséquent de dimension mn. 
 Les sommets de PPMSA(m,n) sont exactement les matrices à signe alternant partielle de taille (m,n).
@@ -520,10 +521,10 @@ Les sommets de PPMSA(m,n) sont exactement les matrices à signe alternant partie
 \begin{petit_nom2}
 Une (m,n)-grid graphe se construit comme suit, ses sommets sont les points (i,j) pour tout $1 \leqslant i \leqslant m+1$ et $1 \leqslant j \leqslant n+1$. \\ Ses arêtes lient le sommet (i,j) à (i+1,j) et (i,j+1) pour tout $1 \leqslant i \leqslant m$ et $1 \leqslant j \leqslant n$. \\
 Nominalisons les (m+1, j) et les (i, n+1) sommets pour tout $1 \leqslant i \leqslant m$ et $1 \leqslant j \leqslant n$ les sommets externes. Les autres sommets à  part (m+1,n+1) sont les sommets internes. \\
-\end{petit_nom2}\\
+\end{petit_nom2}
 \begin{petit_nom2}
 On appelle graphe labellisé d'une matrice X de dimension $m*n$ une graphe construit comme celle dans la définition précédente avec les composantes de la matrice X comme sommets. A la différence de la dernière définition, la graphe est pondérée. la pondération de l'arête reliant (i,j) et (i, j+1) est la somme horizontale des lignes jusqu'à cet arête, c'est-à-dire, $r_{ij}=\sum_{j'=1}^{j}{X_{ij'}}$. De même, la pondération de l'arête liant (i,j)et (i+1,j) se construit en sommant verticalement les sommets de haut jusqu'à l'arête. En d'autre terme $c_{ij}=\sum_{i'=1}^{i}{X_{i'j}}$
-\end{petit_nom2}\\
+\end{petit_nom2}
 \textbf{Théorème :}\\
 PPASM(m,n) est l'ensemble des matrices de taille $m*n$ $(M_{ij})$ réels telle que:\\
 \begin{equation}
@@ -545,9 +546,9 @@ Notons que si la pondération des matrices sont tous 0 ou 1 alors la matrice est
 \includegraphics[scale=0.9]{Capture5.PNG} \\\\
 \textbf{exemple : }\\
 Soit la matrice 
-\begin{pmatrix}
+$\begin{pmatrix}
   0.2&0.7&0\\0.4&-0.3&0.5\\0.3&-0.1&-0.2
- \end{pmatrix} \\
+ \end{pmatrix}$ \\
  Après la décomposition énumérée ci dessus, nous pouvons obtenir une décomposition de X comme $X=l^+X^+ + l^-X^-$ avec $l^+=0.1$ et $l^-=0.3$ \\\\ $X^+=\begin{pmatrix}
   0.2&0.8&0\\0.5&-0.4&0.5\\0.2&0&-0.2
  \end{pmatrix} $ et $X^-=\begin{pmatrix}
@@ -595,8 +596,8 @@ PPASM(m,n) est l'intersection de P(m,n) et les sous espaces des matrices réels 
 (mbola tokony apina)
 \chapter{Permutohudron partielle}
 \begin{petit_nom2}
-Soit une permutation partielle M de taille $m*n$, Notons w(M) le mot qui lui est associé, c'est à dire $w(M)=w_1w_2...w_m$ où $w_i=j$ s'il existe j tel que $M_{ij}=1$ et 0 à part ces i.
-\end{petit_nom2}\\\\
+Soit une permutation partielle M de taille $m*n$, Notons w(M) le mot qui lui est associé, c'est à dire $w(M)=w_1w_2...w_m$ $où$ $w_i=j$ s'il existe j tel que $M_{ij}=1$ et 0 à part ces i.
+\end{petit_nom2}
 \textbf{Exemple : }\\\\
 Soit M=$\begin{pmatrix}
 0&1&0&0&0\\0&0&0&1&0\\0&0&1&0&0\\0&0&0&0&0
@@ -604,31 +605,31 @@ Soit M=$\begin{pmatrix}
 \begin{petit_nom1}
 En notons $P_{m,n}$ l'ensemble des permutations partielles. \\
 Alors $w(P_{m,n})$ peut être interprété comme l'ensemble de tous les mots de longueur m dans $\{0,1,2,...,n \}$ tel que tout lettre différents de 0 se trouve une seule fois pour chaque mot.
-\end{petit_nom1}\\\\
+\end{petit_nom1}
 \textbf{Preuve : }\\
 Par définition, les matrices dans $P_{m,n}$ ont tous m lignes et n colonnes. Aussi, les entrée 1 n'existent qu'une et une fois pour chaque ligne et colonne. Le mot a ainsi un longueur de taille m. Les lettres dans $\{0,1,2,...,n \}$, et les lettres autres que 0 sont tous distinctes \\\\
 \begin{petit_nom2}
 Soit P(m,n) le polytope définie par l'enveloppe convexe de tous les mots de $w(P_{m,n})$. Appelons cela le (m,n)-permutohudron partielle. 
-\end{petit_nom2}\\\\
+\end{petit_nom2}
 Soit z un vecteur dans $R^n$ tel que les composantes non-nulles de z sont tous distincts. \\
-Définissons $\Phi_z : \mathsf{R}^{m,n} \longleftrightarrow \mathsf{R}^m $ tel que $\Phi_z (X) = zX $. Définissons aussi $w_z(P_{m,n})$ l'ensemble de tout les mots de longueur m à valeur dans $\{0,z_1,z_2,...,z_n \}$ et où les entrées non-nulles sont toutes non-distinctes. \\ Alors $P_z(m,n)$ est le polytope définie comme l'enveloppe convexe des mots dans $w_z(P_{m,n})$ . \\\\
+Définissons $\Phi_z : \mathsf{R}^{m,n} \longleftrightarrow \mathsf{R}^m $ tel que $\Phi_z (X) = zX $. Définissons aussi $w_z(P_{m,n})$ l'ensemble de tout les mots de longueur m à valeur dans $\{0,z_1,z_2,...,z_n \}$ et $où$ les entrées non-nulles sont toutes non-distinctes. \\ Alors $P_z(m,n)$ est le polytope définie comme l'enveloppe convexe des mots dans $w_z(P_{m,n})$ . \\\\
 \begin{petit_nom1}
 Le nombre de sommets de P(m,n) est égal à :
 \begin{equation}
 \sum_{k=max(m-n,0)}^m \dfrac{m!}{k!} 
 \end{equation}
-\end{petit_nom1}\\\\
+\end{petit_nom1}
 \textbf{Preuve : }\\
-Les points extrêmes de P(m,n) sont ceux où les entrées non nulles sont maximales. Si nous avons donc k entrées nulles, les (m-k) entrées non nulles sont précisément $ \{n,n-1,n-2,...,n-(m-k)+1 \} $. Il ne reste donc plus qu'à choisir les k éléments nuls dans le mot de longueur m. Il en découle qu'il existe $\dfrac{m!}{k!}$ vecteurs maximisés avec k entrées nulles.\\\\
+Les points extrêmes de P(m,n) sont ceux $où$ les entrées non nulles sont maximales. Si nous avons donc k entrées nulles, les (m-k) entrées non nulles sont précisément $ \{n,n-1,n-2,...,n-(m-k)+1 \} $. Il ne reste donc plus qu'à choisir les k éléments nuls dans le mot de longueur m. Il en découle qu'il existe $\dfrac{m!}{k!}$ vecteurs maximisés avec k entrées nulles.\\\\
 \begin{petit_nom2}
 Soit 2 vecteurs u et v de taille N. Nous disons que u est faiblement majoré par v si 
 \begin{equation}
 \sum_{i=0}^k u_{[i]} \leqslant \sum_{i=0}^k u_{[i]}  \text{           Pour tout } 1\leqslant k  \leqslant N
 \end{equation}
-où les vecteur $ (u_{[i]})_{1\leqslant k  \leqslant N} \text{ et } (u_{[i]})_{1\leqslant k  \leqslant N} $ sont obtenus en organisant les composantes de u et de v de manière décroissante. 
+$où$ les vecteur $ (u_{[i]})_{1\leqslant k  \leqslant N} \text{ et } (u_{[i]})_{1\leqslant k  \leqslant N} $ sont obtenus en organisant les composantes de u et de v de manière décroissante. 
 \end{petit_nom2}
 \begin{petit_nom1}
-u est faiblement majoré par v si et seulement si u se trouve dans l'enveloppe convexe de l'ensemble de tout les vecteurs z tels que $z= (\epsilon_1v_{\pi(1)},\epsilon_2v_{\pi(2)},...,\epsilon_nv_{\pi(n)})$ où $\pi$ est une permutation et les $\epsilon_i$ ont tous une valeur dans $\{0,1\}$
+u est faiblement majoré par v si et seulement si u se trouve dans l'enveloppe convexe de l'ensemble de tout les vecteurs z tels que $z= (\epsilon_1v_{\pi(1)},\epsilon_2v_{\pi(2)},...,\epsilon_nv_{\pi(n)})$ $où$ $\pi$ est une permutation et les $\epsilon_i$ ont tous une valeur dans $\{0,1\}$
 \end{petit_nom1}
 \textbf{Théorème :} \\\\
 P(m,n) est l'ensemble des vecteurs $u \in R^m$ tel que:
@@ -638,7 +639,7 @@ n+1\\2
 \end{pmatrix}-\begin{pmatrix}
 n-k+1\\2
 \end{pmatrix}
-\text{           où } S  \subseteq [i] , S=k \neq 0
+\text{           $où$ } S  \subseteq [i] , S=k \neq 0
 \end{equation}
 \begin{equation}
 0 \leqslant u_i  \text{           pour tout  } 1\leqslant i\leqslant m
