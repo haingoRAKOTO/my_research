@@ -773,6 +773,31 @@ P(m, m) est de dimension k si et seulement si la chaîne correspondante a k rang
 \end{theorem}
 
 \chapter{Projection à partir de polytopes de matrice de signes alternés partiels.}
-
+\begin{theorem}
+  $\Phi_z(PPerm(m, n)) = P_z(n, m).$\\
+  Avec $\Phi_z$ la fonction définie dans théorème ?;?.
+\end{theorem}
+\textbf{\textit{Preuve :}}\\
+Il faut d'abord montrer $P_z(n, m) \subseteq \Phi_z(PPerm(m, n))$. Supposons $v \in Pz(n, m)$. Nous tenons à
+montrer $v \in \Phi_z(PPerm(m, n))$. Par définition,$ v = \sum\lambda_iw_i$ où la somme est sur toute la longueur n mots $w_i$
+dont les entrées sont dans ${0, z_1, z_2, . . . , z_m}$ et dont les entrées non nulles sont distinctes. Mais $w_i = zX_i$ où
+$X_i \in P_{m,n}$. Donc $v = \sum\lambda_izX_i = z\sum\lambda_iX_i$, ce qui prouve notre affirmation.
+Il faut alors montrer que $\Phi_z(PPerm(m, n)) \subseteq P_z(n, m)$. Définissons $\hat{z}$ comme z avec n − m zéros
+ajouté si $n ≥ m$ et comme les plus grandes m −n composantes de z si $n < m$. Soit $X = {x_{ij}}$ un $m \times n$
+matrice de permutation partielle. Alors, par la proposition 5.8, la preuve sera complétée en montrant
+$z_X \prec_w \hat{z}$ puisque l'enveloppe convexe décrite sera alors $P_z(n, m)$. Ainsi, d'après la définition 5.7, nous devons
+Afficher:
+\begin{equation}
+  \sum_{j=1}^k(zX)_
+  {[j]} \leq\sum_{j=1}^k\hat{z}_
+  {[j]}
+\end{equation}
+, pour 1 ≤ k ≤ n.
+Ceci est vrai, puisque chaque composante du vecteur zX est soit 0 soit $z_i$ pour un certain $1 \leq i \leq m$, car
+chaque colonne de X a au plus une entrée non nulle.
+\begin{theorem}
+  Soit z un vecteur strictement décroissant dans $R^m$. Alors $\Phi_z(PASM(m, n)) = P_z(n, m)$.
+\end{theorem}
+\textbf{\textit{Preuve :}}\\
 
 \end{document}
