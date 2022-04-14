@@ -667,7 +667,7 @@ Il y a trois façons pour que deux tubes $t_1$ et $t_2$ interagissent dans un gr
 \begin{enumerate}
 \item $t_1 \subset t_2$
 \item les 2 tubes se coupent c'est-à-dire $t_1 \cap t_2 \neq 0$ avec $ t_1 \nsubseteq t_2$ et $t_2 \nsubseteq t_1 $
-\item les 2 tubes sont adjacents c'est-à-dire $t_1 \cap t_2 = 0$ et $t_1 \cup t_2$ est un tube dans G. ahahaha
+\item les 2 tubes sont adjacents c'est-à-dire $t_1 \cap t_2 = 0$ et $t_1 \cup t_2$ est un tube dans G. 
 \end{enumerate}
 Les tubes sont dits compatibles si ni ils se coupent, ni ils ne sont adjacents. Un Tubing T de G est un ensemble 
 de tubes de G tel que chaques pairs de tubes sont compatibles  l'un avec l'autre.\\
@@ -677,17 +677,128 @@ Notons $k-Tubing$ un Tubing ayant k tubes.\\
 \begin{petit_nom2}
   Pour un graphe G, le graphe associahedron noté \textit{Assoc(G)} est un polytope convexe dont la face poset est isomorphe à l'ensemble des Tubing de G, ordonné tel que T < T'
   si T obtenu à partir de T' en ajoutant des tubes.\\
-  Le graphe associé du graphe en étoile, Assoc(K1,m), aussi appelé le \textit{stellohedron}.\\
+  Le graphe associé du graphe en étoile, Assoc($K_{1,m}$), aussi appelé le \textit{stellohedron}.\\
 \end{petit_nom2}
 
 \begin{petit_nom2}
   Le graphe étoilé (à m + 1 sommets) est le graphe biparti complet $K_{1,m}$. Nous
-étiquetez le sommet isolé ∗ et appelez-le le sommet intérieur. Nous étiquetons les m autres sommets $x_1, x_2, . . . , x_m$,
+étiquetez le sommet isolé * et appelez-le le sommet intérieur. Nous étiquetons les m autres sommets $x_1, x_2, . . . , x_m$,
 et appelez-les sommets extérieurs
 \end{petit_nom2}
 
+\begin{theorem}
+  P(m, m) est une réalisation de $Assoc(K_{1,m})$
+\end{theorem}
 
-apinarep zao
+\textbf{\textit{Remarque : }}\\
+L'application qui envoie les tubes maximaux de $K_{1,m}$ aux sommets de P(m, m) est la suivante. Soit T un tube maximal de K1,m, et pour chaque sommet externe xi , soit ti le plus petit tube contenant xi . Alors la coordonnée dans R
+m correspondant à T est $(|t_1| − 1, |t_2| − 1, . . . , |t_m| − 1)$.\\
+Notez que deux tubes du graphe en étoile ne sont compatibles que s'ils contiennent chacun un seul sommet extérieur
+et ne contiennent pas ∗, ou l'un est contenu dans l'autre. Donc un tube maximal aura r tubes
+qui sont des sommets extérieurs singletons et des tubes de chaque taille de r + 1 à m + 1. De plus, le tube
+de taille r + 1 doit contenir chacun des r sommets extérieurs du singleton avec le sommet intérieur. Ainsi
+un tel tube est mappé sur une coordonnée dans $R^m$ avec r zéros et dont les entrées non nulles sont
+{m, m - 1, . . . , r + 1}, qui est un sommet de P(m, m).\\
+
+\begin{petit_nom2}
+  Soit T un tube du graphe en étoile. L'épine de T est le poset de tubes de T ordonnés par inclusion, dont les éléments sont étiquetés non par les tubes eux-mêmes mais par l'ensemble des nouveaux
+sommets dans chaque tube. Pour simplifier, nous utiliserons l'étiquette i à la place de $x_i$
+\end{petit_nom2}
+Ci dessous un exemple de Tubing de $K_{1,4}$ ainsi que son épine correspondant :\\
+\includegraphics[scale=0.7]{Capture6.PNG}\\
+
+\textbf{\textit{Lemme :}}\\
+Les tubings de $K_{1,m}$ sont en bijection avec des chaînes dans le réseau booléen $B_m$.\\
+\textbf{\textit{Preuve :}}\\
+Étant donné une épine S d'un tube T de $K_{1,m}$, on peut retrouver la chaîne correspondante dans le 
+réseau booléen comme suit. L'élément inférieur de la chaîne est le sous-ensemble comprenant tout ce qui est regroupé
+avec ∗ dans S. Chaque sous-ensemble suivant est créé en ajoutant les éléments du niveau suivant de S, jusqu'à ce que
+nous atteignons le niveau supérieur. Tous les éléments non utilisés dans les sous-ensembles de la chaîne seront ceux qui apparaissent
+sous le ∗ dans S.
+Partant d'une chaîne C ∈ $B_m$, on peut récupérer le spine correspondant S (et donc le tubing)
+en inversant ce processus. Tous les éléments qui ne sont pas dans le sous-ensemble maximal de C seront au niveau inférieur
+de S comme singletons. Tous les éléments de la chaîne minimale de C apparaîtront avec ∗ dans S. Le nouveau
+les éléments qui apparaissent dans chaque sous-ensemble suivant dans C apparaissent ensemble comme un nouveau niveau dans S. Une fois que nous
+ont S, nous pouvons, bien sûr, récupérer T.\\
+\textbf{\textit{Lemme :}}\\
+Soit T un k-Tubing et T'
+un (k + j)-Tubing de $K_{1,m}$, et soit C et C'
+être leur
+chaînes correspondantes dans $B_m$ via la bijection du Lemme 5.19. $T \subset T'$
+si et seulement si C'
+peut être obtenu à partir de C par j itérations des éléments suivants :\\
+\begin{enumerate}
+  \item ajouter un sous-ensemble non maximal, ou
+  \item supprimer le même élément de chaque sous-ensemble.
+\end{enumerate}
+\textbf{\textit{Preuve :}}\\
+Considérons $T \subset T'$
+, soit T'
+est obtenu à partir de T en ajoutant des tubes. Supposons que T et T' diffèrent
+en ajoutant un seul tube, c'est-à-dire T = {t1, t2, . . . , tk} et T' = {t1, t2, . . . , tk, t0}. Soit S et S' être leurs épines correspondantes, et soit C et C' leurs chaînes correspondantes. Notons d'abord que par le
+nature du graphe stellaire, un tube est soit un sommet extérieur singleton, $x_i$
+, ou contient le sommet intérieur,
+∗. Notez qu'un singleton xi et le singleton ∗ ne peuvent pas coexister en tant que tubes dans un tube puisqu'ils sont
+non compatibles (ils sont adjacents).
+Considérons d'abord le cas où t' était un sommet extérieur singleton, $x_i$
+. Cela signifie qu'en S, j'étais
+groupé avec ∗, tandis que dans S'
+, {i} apparaît maintenant sous ∗. Au niveau des chaînes, cela signifie que i est
+retiré de tous les sous-ensembles de C pour obtenir C'.\\
+Considérons maintenant le cas où t' n'était pas un sommet extérieur singleton. Alors il contient nécessairement ∗.
+Dans ce cas, S' a un nouveau niveau qui n'était pas présent dans S. En particulier, ce niveau contient ∗ (et
+éventuellement d'autres étiquettes). Un nouveau niveau contenant ∗ correspond à l'ajout d'un sous-ensemble non maximal
+au niveau des chaînes. Autrement dit, C'
+est obtenu à partir de C en ajoutant un sous-ensemble non maximal.\\
+Supposons maintenant T et T' diffèrent par plus d'un tube, disons que T est un tube k et T'
+est un (k+j)-tube pour certains j. Alors T'
+est obtenu à partir de T en ajoutant un tube à la fois, j fois, et donc C'
+est obtenu à partir de C par j itérations de (1) et/ou (2) ci-dessus.\\
+\textbf{\textit{Corrollaire :}}\\
+Une face de P(m, m) est de dimension k si et seulement si la chaîne correspondante a
+k rangs manquants.\\
+\textbf{\textit{Preuve :}}\\
+On sait que l'ajout d'un tube réduit de un la dimension de la face correspondante. Aussi,
+d'après le lemme précédent, on sait que l'ajout d'un tube correspond soit à l'ajout d'un sous-ensemble non maximal soit
+supprimer un élément de chaque sous-ensemble de la chaîne correspondante. Dans les deux cas, cela réduit le
+nombre de rangs manquants dans la chaîne par un. Ainsi, avoir k rangs manquants dans la chaîne correspond
+à avoir m − k tubes, ce qui par définition de l'associaèdre de graphe correspond à une face étant
+de dimension k
+\begin{theorem}
+  Le réseau des faces de P(m, m) est isomorphe au réseau des chaînes de $B_m$, où
+C < C'
+si C'
+peut être obtenu à partir de C par itérations de (1) et/ou (2) du lemme 5.20. Un visage de
+P(m, m) est de dimension k si et seulement si la chaîne correspondante a k rangs manquants.
+\end{theorem}
+
+\chapter{Projection à partir de polytopes de matrice de signes alternés partiels.}
+\begin{theorem}
+  $\Phi_z(PPerm(m, n)) = P_z(n, m).$\\
+  Avec $\Phi_z$ la fonction définie dans théorème ?;?.
+\end{theorem}
+\textbf{\textit{Preuve :}}\\
+Il faut d'abord montrer $P_z(n, m) \subseteq \Phi_z(PPerm(m, n))$. Supposons $v \in Pz(n, m)$. Nous tenons à
+montrer $v \in \Phi_z(PPerm(m, n))$. Par définition,$ v = \sum\lambda_iw_i$ où la somme est sur toute la longueur n mots $w_i$
+dont les entrées sont dans ${0, z_1, z_2, . . . , z_m}$ et dont les entrées non nulles sont distinctes. Mais $w_i = zX_i$ où
+$X_i \in P_{m,n}$. Donc $v = \sum\lambda_izX_i = z\sum\lambda_iX_i$, ce qui prouve notre affirmation.
+Il faut alors montrer que $\Phi_z(PPerm(m, n)) \subseteq P_z(n, m)$. Définissons $\hat{z}$ comme z avec n − m zéros
+ajouté si $n ≥ m$ et comme les plus grandes m −n composantes de z si $n < m$. Soit $X = {x_{ij}}$ un $m \times n$
+matrice de permutation partielle. Alors, par la proposition 5.8, la preuve sera complétée en montrant
+$z_X \prec_w \hat{z}$ puisque l'enveloppe convexe décrite sera alors $P_z(n, m)$. Ainsi, d'après la définition 5.7, nous devons
+Afficher:
+\begin{equation}
+  \sum_{j=1}^k(zX)_
+  {[j]} \leq\sum_{j=1}^k\hat{z}_
+  {[j]}
+\end{equation}
+, pour 1 ≤ k ≤ n.
+Ceci est vrai, puisque chaque composante du vecteur zX est soit 0 soit $z_i$ pour un certain $1 \leq i \leq m$, car
+chaque colonne de X a au plus une entrée non nulle.
+\begin{theorem}
+  Soit z un vecteur strictement décroissant dans $R^m$. Alors $\Phi_z(PASM(m, n)) = P_z(n, m)$.
+\end{theorem}
+\textbf{\textit{Preuve :}}\\
 
 
 \end{document}
